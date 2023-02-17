@@ -9,3 +9,12 @@ const winningCombos = [
     [0, 4, 8],
     [2, 4, 6],
 ];
+let board;
+let turn;
+let winner;
+let tie;
+let scoreBoard = {
+    player1Wins: 0,
+    player2Wins: 0,
+    ties: 0
+};
