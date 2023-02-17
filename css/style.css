@@ -1,0 +1,124 @@
+
+
+body {
+  background-color: #f2a5cd;
+/* Use a system font, if none are available use an available sans-sarif   font */
+font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+margin: auto;
+height: 100vh;
+display: flex;
+flex-direction: column;
+text-align: center;
+justify-content: center;
+align-items: center;
+}
+
+section.board {
+display: grid;
+border-color: aliceblue;
+border-width: 5px;
+grid-template-rows: repeat(3, 11vmin);
+grid-template-columns: repeat(3, 11vmin);
+grid-gap: 0vmin;
+}
+
+.sqr {
+border: 2.8px solid #80CED7;
+font-size: 8vmin;
+text-align: center;
+vertical-align: middle;
+outline-width: 2ch;
+/* border-radius: 35% */
+}
+
+.sqr:hover {
+color: 1px solid rgba(0,0,0,0.5);
+cursor: pointer;
+}
+
+.sqr:nth-child(-n + 3) {
+  border-top: none;
+} 
+
+.sqr:nth-child(3n) {
+  border-right: none;
+} 
+
+.sqr:nth-child(n + 7) {
+  border-bottom: none;
+} 
+
+.sqr:nth-child(3n  - 2) {
+  border-left: none;
+} 
+
+#resetGame {
+margin-top: 20px;
+border-radius: 15%;
+}
+
+
+#sq0, #sq2, #sq4, #sq6, #sq8 {
+background-color: rgba(240, 33, 157, 0.34);
+
+}
+
+#overlay {
+position: fixed;
+height: 90%;
+width: 90%;
+background-color: rgb(75, 133, 234);
+border-radius: 5%;
+}
+
+#overlay button {
+border-radius: 15%;
+background-color: rgb(246, 169, 215) 
+}
+
+footer h2 {
+margin-top: 5px;
+}
+.scoreDisplay {
+text-align: left;
+align-items: center;
+justify-content: center;
+vertical-align: middle;
+font-size: 18px;
+}
+
+footer > div {
+background-color: #80CED7;
+padding: 10px 20px;
+border: 1px solid rgba(0, 0, 0, 0.719);
+border-radius: 5%;
+
+}
+
+#resetGame {
+margin-bottom: 20px;
+padding: 5px;
+background-color: #854b8c;
+color: aliceblue;
+cursor: pointer;
+}
+
+#slash {
+position: absolute;
+stroke: 1px;
+width: 5px;
+color: black;
+height: 5px;
+}
+
+.scoreboard-div {
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+}
+
+.player-1-score-div, .player-2-score-div, .tie-score-div {
+display: flex;
+justify-content: space-between;
+}
