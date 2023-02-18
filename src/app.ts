@@ -26,3 +26,8 @@ let scoreBoard = {
   ties: 0
 }
 
+const squareEls = document.querySelectorAll('.sqr')
+const resetBtn = document.querySelector<HTMLButtonElement>('#resetGame')
+const boardEl = document.querySelectorAll('.board')
+const player1ScoreCountEl = document.querySelector('#player1Score')
+

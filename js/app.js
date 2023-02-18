@@ -18,3 +18,7 @@ let scoreBoard = {
     player2Wins: 0,
     ties: 0
 };
+const squareEls = document.querySelectorAll('.sqr');
+const resetBtn = document.querySelector('#resetGame');
+const boardEl = document.querySelectorAll('.board');
+const player1ScoreCountEl = document.querySelector('#player1Score');
