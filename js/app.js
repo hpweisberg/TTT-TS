@@ -71,5 +71,13 @@ function checkForWinner() {
         }
     }
 }
+function switchPlayerTurn() {
+    if (winner === true) {
+        return;
+    }
+    else {
+        turn *= -1;
+    }
+}
 // number = 'id' in evt.target.id.slice(2)
 // if(!sqIdx || !evt.target.id) return

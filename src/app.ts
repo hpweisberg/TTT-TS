@@ -86,5 +86,15 @@ function checkForWinner(): void {
   }
 }
 
+function switchPlayerTurn(): void {
+  if (winner === true){
+    return
+  } else {
+    turn *= -1
+  }
+}
+
+
+
 // number = 'id' in evt.target.id.slice(2)
   // if(!sqIdx || !evt.target.id) return
