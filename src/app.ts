@@ -94,7 +94,15 @@ function switchPlayerTurn(): void {
   }
 }
 
-
+function incrementScoreBoard(): void {
+  if (winner === false) return
+  if (winner === true && turn === 1){
+    scoreBoard.player1Wins++
+  }
+  if (winner === true && turn === -1){
+    scoreBoard.player2Wins++
+  }
+}
 
 // number = 'id' in evt.target.id.slice(2)
   // if(!sqIdx || !evt.target.id) return
