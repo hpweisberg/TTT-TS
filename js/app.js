@@ -62,5 +62,14 @@ function checkForTie() {
         scoreBoard.ties++;
     }
 }
+function checkForWinner() {
+    for (let i = 0 < winningCombos.length; i++;) {
+        if (Math.abs(board[winningCombos[i][0]] +
+            board[winningCombos[i][1]] +
+            board[winningCombos[i][2]]) === 3) {
+            winner = true;
+        }
+    }
+}
 // number = 'id' in evt.target.id.slice(2)
 // if(!sqIdx || !evt.target.id) return
