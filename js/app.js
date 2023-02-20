@@ -22,3 +22,45 @@ const squareEls = document.querySelectorAll('.sqr');
 const resetBtn = document.querySelector('#resetGame');
 const boardEl = document.querySelectorAll('.board');
 const player1ScoreCountEl = document.querySelector('#player1Score');
+const init = () => {
+    board = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        turn = 1,
+        winner = false,
+        tie = false;
+};
+const render = () => {
+    updateBoard();
+};
+function updateBoard() {
+    // if (!squareEls)
+    board.forEach((element, idx) => {
+        if (element === 1) {
+            squareEls[idx].textContent = 'X';
+        }
+        if (element === -1) {
+            squareEls[idx].textContent = 'O';
+        }
+        else {
+            squareEls[idx].textContent = '';
+        }
+    });
+}
+function handleClick(evt) {
+    if (!evt.target || !EventTarget.id)
+        return;
+    const sqIdx = 'id' in evt.target?.id;
+}
+function placePiece(idx) {
+    board.splice(idx, 1, turn);
+}
+function checkForTie() {
+    if (board.includes(0)) {
+        tie = false;
+    }
+    else {
+        tie = true;
+        scoreBoard.ties++;
+    }
+}
+// number = 'id' in evt.target.id.slice(2)
+// if(!sqIdx || !evt.target.id) return
