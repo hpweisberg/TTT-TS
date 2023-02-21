@@ -42,15 +42,21 @@ const messageEl = document.querySelector('#message')! as HTMLHeadingElement
 const player1NameEl = document.querySelector<HTMLElement>('#player1')!
 const player2NameEl = document.querySelector<HTMLElement>('#player2')!
 const tieEl = document.querySelector<HTMLElement>('#tie')!
-const overlay = document.querySelector<HTMLElement>('#overlay')
-const player1NameBox = document.querySelector<HTMLElement>('#player1Name')
-const player2NameBox = document.querySelector<HTMLElement>('#player2Name')
+const overlay = document.querySelector<HTMLElement>('#overlay')!
+const player1NameBox = document.querySelector<HTMLInputElement>('#player1Name')!
+const player2NameBox = document.querySelector<HTMLInputElement>('#player2Name')!
 const startBtn = document.querySelector('#start-btn')! as HTMLButtonElement
 const tieScoreCountEl = document.querySelector<HTMLElement>('#tieScore')!
 
 // -------- Event Listeners ------------
 
 boardEl.addEventListener('click', handleClick)
+startBtn.addEventListener('click', function(evt: MouseEvent): void{
+  choosePlayerNames()
+  updateScoreBoard()
+  render()
+  overlay.style.display = 'none'
+})
 // resetBtn.addEventListener('clicl', init)
 // squareEls.forEach(function(sqr){
 //   sqr.addEventListener('click', handleClick)
@@ -58,18 +64,22 @@ boardEl.addEventListener('click', handleClick)
 
 // -------- Function ------------
 
-// const choosePlayerNames = (evt: MouseEvent) => void {
-//   if (player1NameBox.value.length > 0){
-//     player1 = player1NameBox.value
-//   } else {
-//     player1 = `Player 1`
-//   }
-//   if (player2NameBox.value.length > 0){
-//     player2 = player2NameBox.value
-//   } else {
-//     player2 = `Player 2`
-//   }
-// }
+function choosePlayerNames():void {
+  console.log('P1 Box:', player1NameBox)
+  console.log('P2 Box:', player2NameBox)
+  if (player1NameBox.value.length > 0){
+    player1 = player1NameBox.value
+  } else {
+    player1 = `Player 1`
+  }
+  if (player2NameBox.value.length > 0){
+    player2 = player2NameBox.value
+  } else {
+    player2 = `Player 2`
+  }
+  console.log('P1 Name:', player1)
+  console.log('P2 Name:', player2)
+}
 
 function init(): void {
   board = [0, 0, 0, 0, 0, 0, 0, 0, 0],

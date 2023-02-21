@@ -40,23 +40,35 @@ const startBtn = document.querySelector('#start-btn');
 const tieScoreCountEl = document.querySelector('#tieScore');
 // -------- Event Listeners ------------
 boardEl.addEventListener('click', handleClick);
+startBtn.addEventListener('click', function (evt) {
+    choosePlayerNames();
+    updateScoreBoard();
+    render();
+    overlay.style.display = 'none';
+});
 // resetBtn.addEventListener('clicl', init)
 // squareEls.forEach(function(sqr){
 //   sqr.addEventListener('click', handleClick)
 // })
 // -------- Function ------------
-// const choosePlayerNames = (evt: MouseEvent) => void {
-//   if (player1NameBox.value.length > 0){
-//     player1 = player1NameBox.value
-//   } else {
-//     player1 = `Player 1`
-//   }
-//   if (player2NameBox.value.length > 0){
-//     player2 = player2NameBox.value
-//   } else {
-//     player2 = `Player 2`
-//   }
-// }
+function choosePlayerNames() {
+    console.log('P1 Box:', player1NameBox);
+    console.log('P2 Box:', player2NameBox);
+    if (player1NameBox.value.length > 0) {
+        player1 = player1NameBox.value;
+    }
+    else {
+        player1 = `Player 1`;
+    }
+    if (player2NameBox.value.length > 0) {
+        player2 = player2NameBox.value;
+    }
+    else {
+        player2 = `Player 2`;
+    }
+    console.log('P1 Name:', player1);
+    console.log('P2 Name:', player2);
+}
 function init() {
     board = [0, 0, 0, 0, 0, 0, 0, 0, 0],
         turn = 1,
