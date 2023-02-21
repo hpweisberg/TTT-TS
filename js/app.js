@@ -14,8 +14,8 @@ let board;
 let turn;
 let winner;
 let tie;
-let player1;
-let player2;
+let player1 = 'Player 1';
+let player2 = 'Player 2';
 let textContent;
 let scoreBoard = {
     player1Wins: 0,
@@ -58,12 +58,14 @@ boardEl.addEventListener('click', handleClick);
 //   }
 // }
 function init() {
-    board = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    board = [0, 0, 0, 0, 0, 0, 0, 0, 0],
         turn = 1,
         winner = false,
         tie = false;
+    // messageEl.innerHTML = 'X Goes First'
+    render();
 }
-resetBtn?.addEventListener('click', init);
+resetBtn.addEventListener('click', init);
 const render = () => {
     updateBoard();
     updateMessage();
@@ -152,6 +154,16 @@ function incrementScoreBoard() {
     if (winner === true && turn === -1) {
         scoreBoard.player2Wins++;
     }
+    console.log(player1ScoreCountEl);
+}
+function updateScoreBoard() {
+    // choosePlayerNames()
+    player1NameEl.innerHTML = `${player1}:`;
+    player1ScoreCountEl.innerHTML = `${scoreBoard.player1Wins}`;
+    player2NameEl.innerHTML = `${player2}:`;
+    player2ScoreCountEl.innerHTML = `${scoreBoard.player2Wins}`;
+    tieEl.innerHTML = `Ties:`;
+    tieScoreCountEl.innerHTML = `${scoreBoard.ties}`;
 }
 init();
 // number = 'id' in evt.target.id.slice(2)

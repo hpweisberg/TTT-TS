@@ -14,8 +14,8 @@ let board: number[]
 let turn: number
 let winner: boolean
 let tie: boolean
-let player1: string
-let player2: string
+let player1: string = 'Player 1'
+let player2: string = 'Player 2'
 let textContent: string
 
 type ScoreBoard = {
@@ -39,14 +39,14 @@ const boardEl = document.querySelector<HTMLDivElement>('.board')!
 const player1ScoreCountEl = document.querySelector<HTMLElement>('#player1Score')!
 const player2ScoreCountEl = document.querySelector<HTMLElement>('#player2Score')!
 const messageEl = document.querySelector('#message')! as HTMLHeadingElement
-const player1NameEl = document.querySelector<HTMLElement>('#player1')
-const player2NameEl = document.querySelector<HTMLElement>('#player2')
-const tieEl = document.querySelector<HTMLElement>('#tie')
+const player1NameEl = document.querySelector<HTMLElement>('#player1')!
+const player2NameEl = document.querySelector<HTMLElement>('#player2')!
+const tieEl = document.querySelector<HTMLElement>('#tie')!
 const overlay = document.querySelector<HTMLElement>('#overlay')
 const player1NameBox = document.querySelector<HTMLElement>('#player1Name')
 const player2NameBox = document.querySelector<HTMLElement>('#player2Name')
 const startBtn = document.querySelector('#start-btn')! as HTMLButtonElement
-const tieScoreCountEl = document.querySelector<HTMLElement>('#tieScore')
+const tieScoreCountEl = document.querySelector<HTMLElement>('#tieScore')!
 
 // -------- Event Listeners ------------
 
@@ -72,12 +72,14 @@ boardEl.addEventListener('click', handleClick)
 // }
 
 function init(): void {
-  board = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  board = [0, 0, 0, 0, 0, 0, 0, 0, 0],
   turn = 1,
   winner = false,
   tie = false
+  // messageEl.innerHTML = 'X Goes First'
+  render()
 }
-resetBtn?.addEventListener('click', init)
+resetBtn.addEventListener('click', init)
 
 const render = (): void => {
   updateBoard()
@@ -104,7 +106,7 @@ function updateMessage(): void{
     console.log('is this running?')
   if (winner === false && tie === false){
     messageEl.textContent = `It's ${turn === 1 ? player1 : player2}'s turn`
-  } else if(winner === false && tie === true){
+  } else if (winner === false && tie === true){
     messageEl.textContent = `It's a Tie`
   } else {
     messageEl.textContent = `Winner Winner Chicken Dinner! ${turn === 1 ? player1 : player2} Wins!`
@@ -168,7 +170,19 @@ function incrementScoreBoard(): void {
   if (winner === true && turn === -1){
     scoreBoard.player2Wins++
   }
+  console.log(player1ScoreCountEl)
 }
+
+function updateScoreBoard(): void {
+  // choosePlayerNames()
+  player1NameEl.innerHTML = `${player1}:`
+  player1ScoreCountEl.innerHTML = `${scoreBoard.player1Wins}`
+  player2NameEl.innerHTML = `${player2}:`
+  player2ScoreCountEl.innerHTML = `${scoreBoard.player2Wins}`
+  tieEl.innerHTML = `Ties:`
+  tieScoreCountEl.innerHTML = `${scoreBoard.ties}`
+}
+
 
 init()
 // number = 'id' in evt.target.id.slice(2)
