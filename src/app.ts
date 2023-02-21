@@ -126,6 +126,7 @@ function handleClick (evt: MouseEvent): void {
   checkForTie()
   checkForWinner()
   incrementScoreBoard()
+  updateScoreBoard()
   switchPlayerTurn()
   render()
 }
@@ -170,11 +171,12 @@ function incrementScoreBoard(): void {
   if (winner === true && turn === -1){
     scoreBoard.player2Wins++
   }
-  console.log(player1ScoreCountEl)
+  console.log('scoreboard:', scoreBoard.player1Wins)
 }
 
 function updateScoreBoard(): void {
   // choosePlayerNames()
+  console.log('updateScoreBoard:', updateScoreBoard)
   player1NameEl.innerHTML = `${player1}:`
   player1ScoreCountEl.innerHTML = `${scoreBoard.player1Wins}`
   player2NameEl.innerHTML = `${player2}:`
